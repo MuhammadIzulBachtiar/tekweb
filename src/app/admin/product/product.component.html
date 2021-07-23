@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click)="ProductDetail({},-1)">Tambah</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>                
+                <th>No</th>
+                <th>Kegiatan</th>
+                <th>Tanggal</th>
+                <th>Keterangan</th>
+                <th>Status</th>
+                <th align="right"></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let todo of todos; let idx=index">
+                    <td>{{idx+1}}</td>
+                    <td>{{todo.title}}</td>
+                    <td>{{todo.time}}</td>
+                    <td>{{todo.ket}}</td>
+                    <td>{{todo.status}}</td>
+                    <td align="right">
+                        <button mat-button color="primary" (click)="ProductDetail(todo,idx)">Edit</button>
+                        <button mat-button color="warn" (click)="deleteProduct(idx)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+ </mat-card>

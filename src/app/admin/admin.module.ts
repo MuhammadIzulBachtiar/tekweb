@@ -4,6 +4,9 @@ import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialDesign } from '../material/material';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -16,9 +19,13 @@ const routes: Routes = [
         component:DashboardComponent
       },
       {
+        path:'product',
+        component:ProductComponent
+      },
+      {
         path:'',
         pathMatch:'full',
-        redirectTo:'/admin/dashboard'
+        redirectTo:'/admin/product'
       }
 
     ]
@@ -30,12 +37,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AdminComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MaterialDesign
+    MaterialDesign,
+    FormsModule
+    
     
   ]
 })
